@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { doc, setDoc, getDoc } from "firebase/firestore";
-import { db } from "@/lib/firebase"; // Adjust the import path
+import { firestore } from "@/utils/firebase"; // Adjust the import path
 
 const AdminSettings = () => {
   const [settings, setSettings] = useState({
@@ -18,7 +18,7 @@ const AdminSettings = () => {
     const fetchSettings = async () => {
       setLoading(true);
       try {
-        const docRef = doc(db, "admin", "settings");
+        const docRef = doc(firestore, "admin", "settings");
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           setSettings(docSnap.data());
@@ -39,7 +39,7 @@ const AdminSettings = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await setDoc(doc(db, "admin", "settings"), settings);
+      await setDoc(doc(firestore, "admin", "settings"), settings);
       alert("Settings updated successfully!");
     } catch (error) {
       console.error("Error updating settings:", error);
