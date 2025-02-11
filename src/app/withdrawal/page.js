@@ -58,7 +58,7 @@ export default function Withdrawal() {
   }
 
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", overflowX: "scroll" }}>
       <Loader loading={loading} /> {/* Show loader while loading */}
       <TheHead />
       <Sidebar />

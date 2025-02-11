@@ -51,7 +51,7 @@ export default function Withdrawal() {
   }
 
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", overflowX: 'scroll' }}>
       {/* Display the loader when data is being fetched */}
       <Loader loading={loading} />
       <TheHead />
